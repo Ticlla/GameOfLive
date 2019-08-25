@@ -22,13 +22,29 @@ class CellTest(unittest.TestCase):
 		cellTest = Cell(Cell.ALIVE)
 		input_state = cellTest.state
 		expected_state = Cell.ALIVE
-		self.assertEqual(input_state, expected_state)
+		self.assertEqual(expected_state,input_state)		
 
 	def test_cell_death(self):
 		cellTest = Cell(Cell.DEATH)
 		input_state = cellTest.state
 		expected_state = Cell.DEATH
-		self.assertEqual(input_state, expected_state)
+		self.assertEqual(expected_state,input_state)		
+
+	# Overpopulation: if a living cell is surrounded by more than three living cells, it dies.
+	def test_cell_live_overpopulation(self):
+		cellTest = Cell(Cell.ALIVE)
+		neighbors_live = 4
+		next_state = cellTest.get_next_state(neighbors_live)
+		expected_state = Cell.DEATH
+		self.assertEqual(expected_state, next_state)
+
+		neighbors_live = 5
+		next_state = cellTest.get_next_state(neighbors_live)
+		expected_state = Cell.DEATH
+		self.assertEqual(expected_state, next_state)
+
+
+
 
 
 

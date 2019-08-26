@@ -4,26 +4,31 @@ from cell import Cell
 
 class CellTest(unittest.TestCase):
 	
+	# Test Cell calss to have Specifi Class name
 	def test_cell_class(self):
 		cellTest = Cell(Cell.ALIVE)
 		self.assertIsInstance(cellTest, Cell, "Class Should be Cell")
 
+	# Test Alive state	
 	def test_alive_state(self):
 		input_state = Cell.ALIVE
 		expected_state = 1
 		self.assertEqual(expected_state,input_state)
 
+	# Test Death state
 	def test_death_state (self):
 		input_state = Cell.DEATH
 		expected_state = 0
 		self.assertEqual(expected_state,input_state)		
 
+	# Test a CEll Alive state
 	def test_cell_alive(self):
 		cellTest = Cell(Cell.ALIVE)
 		input_state = cellTest.state
 		expected_state = Cell.ALIVE
 		self.assertEqual(expected_state,input_state)		
 
+	# Test death cell state
 	def test_cell_death(self):
 		cellTest = Cell(Cell.DEATH)
 		input_state = cellTest.state
@@ -58,7 +63,6 @@ class CellTest(unittest.TestCase):
 		self.assertEqual(expected_state, next_state)
 
 	#Underpopulation: if a living cell is surrounded by fewer than two living cells, it dies.
-
 	def test_cell_underpopulation(self):
 		cellTest = Cell(Cell.ALIVE)
 		neighbors_live = 0

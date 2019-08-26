@@ -19,6 +19,8 @@ class Game:
 
 		return board_text
 
+	# getCell  retrieves cell at specific location on matrix
+	# row, col : row number and column number
 	def getCell(self,row, col):
 		return self.board[row][col]
 
@@ -36,6 +38,7 @@ class Game:
 		return right_neighbour + left_neighbour + top_neighbour + bottom_neighbour + top_corner_left_neighbour + top_corner_right_neighbour + bottom_corner_left_neighbour + bottom_corner_right_neighbour
 
 
+	# nextGameState: it set the next board state 
 	def nextGameState(self):
 		aux_board = [[0 for i in range(len(self.board[0]))] for i in range(len(self.board))]
 	
@@ -47,35 +50,3 @@ class Game:
 
 		self.board = aux_board
 		return self.board
-
-
-
-
-initial_game_state = [
-		[Cell.DEATH,Cell.ALIVE,Cell.DEATH],
-		[Cell.DEATH,Cell.ALIVE,Cell.DEATH],
-		[Cell.DEATH,Cell.ALIVE,Cell.DEATH]
-		]
-game = Game(initial_game_state)
-print (game)
-game.nextGameState()
-print (game)
-game.nextGameState()
-print (game)
-game.nextGameState()
-print (game)
-game.nextGameState()
-print (game)
-game.nextGameState()
-print (game)
-game.nextGameState()
-print (game)
-game.nextGameState()
-print (game)
-game.nextGameState()
-print (game)
-game.nextGameState()
-print (game)
-game.nextGameState()
-print (game)
-#print("a" + "b")

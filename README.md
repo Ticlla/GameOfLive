@@ -1,5 +1,5 @@
 # GameOfLive
-python implementation of Game of Live a simple game in a 2D Map board, the board is composed of cells which have a state the porpuse of the game is to find the next board state give the criterias below:
+python implementation of Game of Live a simple game in a 2D Map board (with no gamers!!!), the board is composed of cells which have a state the porpuse of the game is to find the next board state give the criterias below:
 
 Any live cell with fewer than two live neighbours dies, as if by underpopulation.
 Any live cell with two or three live neighbours lives on to the next generation.
@@ -10,6 +10,11 @@ Any dead cell with exactly three live neighbours becomes a live cell, as if by r
 
 The  python version has been written following TDD (Test Driven Developmet) where the test has been designed before the implemntation, to see which test has been considered see test_cell.py and test_game.py
 
-to run all tst cases run as 'python -m unittest'
+to run all test cases run as 'python -m unittest'
+
+Cell.py and Game.py Contains all the Game logic / business rule
+
+client_game.py is a game demo on 3X3 2D array (Matrix)
+
 
 

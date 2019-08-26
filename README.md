@@ -14,7 +14,7 @@ to run all test cases run as 'python -m unittest'
 
 Cell.py and Game.py Contains all the Game logic / business rule
 
-client_game.py is a game demo on 3X3 2D array (Matrix)
+clientgame.py is a game demo on 3X3 2D array (Matrix)
 
-
+run as 'python clientgame.py' in CLI and see output
 

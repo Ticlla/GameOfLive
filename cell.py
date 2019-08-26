@@ -16,3 +16,8 @@ class Cell():
 		return Self.DEATH
 
 
+	def __str__(self):
+		if self.state == 1:
+			return 'o'
+		else:
+			return '.'

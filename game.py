@@ -22,6 +22,7 @@ class Game:
 	def getCell(self,row, col):
 		return self.board[row][col]
 
+	# Gets The number of neigbors a cell can have, it considers all possible scenarios
 	def getNumberNeighbours(self, row, col):
 		right_neighbour = Cell.DEATH if (col + 1 >= len(self.board[0])) else self.board[row][col + 1].state
 		left_neighbour = Cell.DEATH if (col - 1 < 0) else self.board[row][col - 1].state
@@ -34,11 +35,47 @@ class Game:
 
 		return right_neighbour + left_neighbour + top_neighbour + bottom_neighbour + top_corner_left_neighbour + top_corner_right_neighbour + bottom_corner_left_neighbour + bottom_corner_right_neighbour
 
-board = [
-		[Cell.ALIVE,Cell.DEATH,Cell.ALIVE],
-		[Cell.ALIVE,Cell.DEATH,Cell.ALIVE],
-		[Cell.ALIVE,Cell.DEATH,Cell.ALIVE],
-		]
 
-print (Game(board))
+	def nextGameState(self):
+		aux_board = [[0 for i in range(len(self.board[0]))] for i in range(len(self.board))]
+	
+		for i in  range(len(self.board)):
+			for j in   range(len(self.board[0])):
+		 		number_neighbour = self.getNumberNeighbours(i,j)
+		 		cell = self.getCell(i,j)
+		 		aux_board[i][j] =  Cell(cell.get_next_state(number_neighbour))
+
+		self.board = aux_board
+		return self.board
+
+
+
+
+initial_game_state = [
+		[Cell.DEATH,Cell.ALIVE,Cell.DEATH],
+		[Cell.DEATH,Cell.ALIVE,Cell.DEATH],
+		[Cell.DEATH,Cell.ALIVE,Cell.DEATH]
+		]
+game = Game(initial_game_state)
+print (game)
+game.nextGameState()
+print (game)
+game.nextGameState()
+print (game)
+game.nextGameState()
+print (game)
+game.nextGameState()
+print (game)
+game.nextGameState()
+print (game)
+game.nextGameState()
+print (game)
+game.nextGameState()
+print (game)
+game.nextGameState()
+print (game)
+game.nextGameState()
+print (game)
+game.nextGameState()
+print (game)
 #print("a" + "b")

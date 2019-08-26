@@ -106,8 +106,29 @@ class GameTest(unittest.TestCase):
 		expected_neighbours = 5
 		self.assertEqual(expected_neighbours,neighbours)
 
+	def test_next_game_state(self):
+		initial_game_state = [
+		[Cell.DEATH,Cell.ALIVE,Cell.DEATH],
+		[Cell.DEATH,Cell.ALIVE,Cell.DEATH],
+		[Cell.DEATH,Cell.ALIVE,Cell.DEATH]
+		]
 
+		game = Game(initial_game_state)
 
+		new_state = game.nextGameState()
+		expected_game_state = [
+		[Cell(Cell.DEATH),Cell(Cell.DEATH),Cell(Cell.DEATH)],
+		[Cell(Cell.ALIVE),Cell(Cell.ALIVE),Cell(Cell.ALIVE)],
+		[Cell(Cell.DEATH),Cell(Cell.DEATH),Cell(Cell.DEATH)]
+		]
+
+		for i in range(len(expected_game_state)):
+			for j in range(len(expected_game_state[0])):
+				if expected_game_state[i][j].state == 1:
+					expected = 'o'
+				else: 
+					expected = '.'
+				self.assertEqual(str(game.board[i][j]), expected)
 
 
 if __name__ == '__main__':

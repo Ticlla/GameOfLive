@@ -22,14 +22,15 @@ class Game:
 
 		return board_text
 
-#board = [
-#		[Cell.ALIVE,Cell.ALIVE,Cell.ALIVE],
-#		[Cell.ALIVE,Cell.ALIVE,Cell.ALIVE],
-#		[Cell.ALIVE,Cell.DEATH,Cell.ALIVE],
-#		[Cell.ALIVE,Cell.ALIVE,Cell.ALIVE],
-#		[Cell.ALIVE,Cell.ALIVE,Cell.ALIVE],
-#		[Cell.ALIVE,Cell.ALIVE,Cell.ALIVE]
-#		]
 
-#print (Game(board))
+	def getCell(self,row, col):
+		return self.board[row][col]
+
+board = [
+		[Cell.ALIVE,Cell.DEATH,Cell.ALIVE],
+		[Cell.ALIVE,Cell.DEATH,Cell.ALIVE],
+		[Cell.ALIVE,Cell.DEATH,Cell.ALIVE],
+		]
+
+print (Game(board))
 #print("a" + "b")

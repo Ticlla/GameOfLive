@@ -20,4 +20,4 @@ class Cell():
 		if self.state == 1:
 			return 'o'
 		else:
-			return '.'
+			 return '.'
